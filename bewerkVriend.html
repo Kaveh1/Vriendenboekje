@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Vriendenboekje</title>
+		<link rel="stylesheet" href="themes/mytheme.min.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+		<script src="app.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+			$(document).bind('pageinit', function() {
+
+				var d = JSON.parse(localStorage.getItem("edit_values")).d;
+				var e = JSON.parse(localStorage.getItem("edit_values")).e;
+				var f = JSON.parse(localStorage.getItem("edit_values")).f;
+
+				$('[name="name_edit"]').val(d);
+				$('[name="number_edit"]').val(e);
+				$('[name="email_edit"]').val(f);
+			});
+		</script>
+	</head>
+	<body>
+		<div data-role="page" id="bewerk" data-theme="c">
+			<div data-role="header" class="header">
+				<h1>Bewerk vriend(in)-gegevens</h1>
+			</div>
+			<br>
+			<label>Naam van vriend(in): </label>
+			<input type="text" name="name_edit" />
+			<br>
+			<label>Telefoonnummer: </label>
+			<input type="tel" name="number_edit"/>
+			<br>
+			<label>Emailadres: </label>
+			<input type="email" name="email_edit"/>
+			<br>
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="home.html" style="text-decoration:none">
+					<button type="button" data-theme="a">
+						Terug naar homescreen
+					</button></a>
+				</div>
+				<div class="ui-block-b">
+					<button type="button" data-theme="c" onclick="updateObjects()">
+						Heropslaan
+					</button>
+				</div>
+			</div>
+			<div class="ui-grid-solo">
+				<div class="ui-block-a">
+					<button type="button" data-theme="b" onclick="deleteObject()">
+						Verwijderen vriend
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
